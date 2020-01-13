@@ -33,7 +33,7 @@ All four models has common  configuration:
 
 ## Evaluation
 | Prediction        /       Ground Truth |
-| ---------------------------
+| ---------------------------|
 ![img1](./imgs/1.png)
 ![img2](./imgs/2.png)
 ![img3](./imgs/3.png)
