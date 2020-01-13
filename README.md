@@ -32,7 +32,7 @@ All four models has common  configuration:
 ### Tensorflow 1.3.0
 
 ## Evaluation
-| Prediction        /       Ground Truth |
+| "Prediction        /       Ground Truth" |
 | ---------------------------|
 ![img1](./imgs/1.png)
 ![img2](./imgs/2.png)
