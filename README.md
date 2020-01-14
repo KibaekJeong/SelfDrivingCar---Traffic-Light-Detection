@@ -96,13 +96,13 @@ Following steps are for training the models using google cloud service:
            git clone https://github.com/tensorflow/models.git
            ```
       * Run setup.py file:
-            ```
+            ```sh
             #From tensorflow/models/research
             python setup.py built
             python setup.py install
             ```
       * Add slim folder as python path:
-            ```
+            ```sh
             export PYTHONPATH=$PYTHONpATH:pwd:pwd/slim
             ```
 
