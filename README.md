@@ -73,7 +73,7 @@ Following steps are for training the models locally:
           ```
           tensorboard --logdir=${MODEL_DIR}
           ```
-      * Navigate to `localhost:6006` from your favorite web browser
+      * Navigate to ```localhost:6006``` from your favorite web browser
 
 
 ### Training with google cloud service
