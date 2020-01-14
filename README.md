@@ -29,25 +29,25 @@ Following steps are for training the models locally:
 3. Download the [TensorFlow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection) and follow these installation steps:
       * Clone the tensorflow object models repo:
 
-           ```sh
+           ```
            git clone https://github.com/tensorflow/models.git
            ```
       * Run setup.py file
 
-          ```sh
+          ```
           # From tensorflow/models/research
           python setup.py built
           python setup.py install
           ```
       * Add slim folder as python path
 
-          ```sh
+          ```
           export PYTHONPATH=$PYTHONpATH:pwd:pwd/slim
           ```
 4. Prepare all the required files for Training
       * Recommended Directory Structure
 
-          ```sh
+          ```
           +data
           -label_map file
           -train TFRecord file
@@ -60,7 +60,7 @@ Following steps are for training the models locally:
           ```
 5. Run the training job
       * Run the following command
-          ```sh
+          ```
           # From the tensorflow/models/research/ directory
           python object_detection/model_main.py \
           --pipeline_config_path=${PIPELINE_CONFIG_PATH} \
@@ -69,7 +69,7 @@ Following steps are for training the models locally:
           ```
 
 6. Check out tensorboard to observe training process
-          ```bash
+          ```
           tensorboard --logdir=${MODEL_DIR}
           ```
       * Navigate to `localhost:6006` from your favorite web browser
@@ -91,39 +91,39 @@ Following steps are for training the models using google cloud service:
 3. Download the [TensorFlow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection) and follow these installation steps:
       * Clone the tensorflow object models repo:
 
-           ```sh
+           ```
            git clone https://github.com/tensorflow/models.git
            ```
       * Run setup.py file
 
-            ```sh
+            ```
             # From tensorflow/models/research
             python setup.py built
             python setup.py install
             ```
       * Add slim folder as python path
 
-            ```sh
+            ```
             export PYTHONPATH=$PYTHONpATH:pwd:pwd/slim
             ```
 4. Upload all the files to Google Cloud Storage bucket
       * Upload tfrecord and pbtxt files
-            ```sh
+            ```
             gsutil cp train.tfrecord gs://${YOUR_GCS_BUCKET}/data/
             gsutil cp valid.tfrecord gs://${YOUR_GCS_BUCKET}/data/
             gsutil cp label_map.pbtxt gs://${YOUR_GCS_BUCKET}/data/label_map.pbtxt
             ```
       * Upload model files
-            ```sh
+            ```
             gsutil cp faster_rcnn_inception_v2_coco_2018_01_28/model.ckpt.* gs://${YOUR_GCS_BUCKET}/data/
             ```
       * Upload configuration file
-            ```sh
+            ```
             gsutil cp faster_rcnn_inception_v2.config gs://${YOUR_GCS_BUCKET}/data/faster_rcnn_inception_v2.config
             ```
 5. Run the training job
 
-            ```sh
+            ```
             gcloud ai-platform jobs submit training `whoami`_object_detection_pets_`date +%m_%d_%Y_%H_%M_%S` \
                 --runtime-version 1.12 \
                 --job-dir=gs://${YOUR_GCS_BUCKET}/model_dir \
@@ -137,7 +137,7 @@ Following steps are for training the models using google cloud service:
             ```
 6. Check out tensorboard to observe training process
 
-            ```sh
+            ```
             tensorboard --logdir=${MODEL_DIR}
             ```
         * Navigate to `localhost:6006` from your favorite web browser          
