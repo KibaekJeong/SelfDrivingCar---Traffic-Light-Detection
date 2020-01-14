@@ -97,6 +97,7 @@ Following steps are for training the models using google cloud service:
            ```
 
       * Run setup.py file
+
             ```
             #From tensorflow/models/research
             python setup.py built
@@ -111,6 +112,7 @@ Following steps are for training the models using google cloud service:
 
 4. Upload all the files to Google Cloud Storage bucket
       * Upload tfrecord and pbtxt files
+
             ```
             gsutil cp train.tfrecord gs://${YOUR_GCS_BUCKET}/data/
             gsutil cp valid.tfrecord gs://${YOUR_GCS_BUCKET}/data/
