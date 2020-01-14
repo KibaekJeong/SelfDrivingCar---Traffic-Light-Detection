@@ -156,7 +156,16 @@ Following steps are for training the models using google cloud service:
 
 ## Exporting
 ### Tensorflow 1.14
+In order to use trained model for inference, models needs to be frozen. This can be done using utility included in tensorflow object API.
 
+```
+python object_detection/export_inference_graph.py \
+    --input_type=image_tensor \
+    --pipeline_config_path=config/faster_rcnn_inception_v2.config \
+    --trained_checkpoint_prefix=models/model.ckpt-150006 \
+    --output_directory=exported_graphs
+
+```
 ### Tensorflow 1.3.0
 
 ## Evaluation
