@@ -137,7 +137,8 @@ Following steps are for training the models using google cloud service:
                 --pipeline_config_path=gs://${YOUR_GCS_BUCKET}/data/faster_rcnn_inception_v2.config
 
 6. Check out tensorboard to observe training process
-        tensorboard --logdir=${MODEL_DIR}
+
+            tensorboard --logdir=${MODEL_DIR}
 
 7. Navigate to ```localhost:6006``` from your favorite web browser          
 
@@ -217,3 +218,10 @@ Python optimize_tf_graph.py\
 ![img5](./imgs/5.png)
 ![img6](./imgs/6.png)
 ![img7](./imgs/7.png)
+
+| Model                              |                Acc (Udacity)               |               Acc (BSTLD)               |             GPU Time (ms)             |               Optimized               |             CPU Time (ms)             |               Optimized               |
+|------------------------------------|:--------------------------------------:|:--------------------------------------:|:-------------------------------------:|:-------------------------------------:|:-------------------------------------:|:-------------------------------------:|
+| ssd_mobilenet_v1                   |                  1.0                 |                  0.992                 |                    22.49                   |                    21.03                   |                     25.35                    |                   24.41                 |
+| **ssd_mobilenet_v2**                   |                  1.0                 |                  0.992                 |                    22.01                   |                    20.86                   |                     22.35                    |                   20.90                   |
+| Faster_rcnn_inception_v2              |                  1.0                 |                  0.9909                 |                  95.61                 |                  92.17                 |                   110.79                  |                   108.50                  |
+| ssd_inception_v2                   |                  1.0                 |                  0.9942                |                    42.30                   |                     40.72                    |                      44.24                    |                    41.80                   |
