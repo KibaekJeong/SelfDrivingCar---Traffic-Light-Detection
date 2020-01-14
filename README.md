@@ -97,9 +97,8 @@ Following steps are for training the models using google cloud service:
            ```
 
       * Run setup.py file
-
-            ```
-            # From tensorflow/models/research
+            ```bash
+            #From tensorflow/models/research
             python setup.py built
             python setup.py install
             ```
