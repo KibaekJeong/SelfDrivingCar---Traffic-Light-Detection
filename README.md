@@ -137,10 +137,9 @@ Following steps are for training the models using google cloud service:
                 --pipeline_config_path=gs://${YOUR_GCS_BUCKET}/data/faster_rcnn_inception_v2.config
 
 6. Check out tensorboard to observe training process
+        tensorboard --logdir=${MODEL_DIR}
 
-            tensorboard --logdir=${MODEL_DIR}
-
-        * Navigate to ```localhost:6006``` from your favorite web browser          
+7. Navigate to ```localhost:6006``` from your favorite web browser          
 
 ## Exporting
 ### Tensorflow 1.14
