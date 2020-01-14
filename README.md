@@ -164,7 +164,60 @@ python object_detection/export_inference_graph.py \
     --output_directory=exported_graphs
 ```
 ### Tensorflow 1.3.0
+From the Capstone project of Self-Driving car Nanodegree program, system requires to run in tensorflow version of 1.3.0. Therefore, inference model is also required to be able to run in Tensorflow 1.3.0. Pre-trained models from [TensorFlow Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md) also are not compatible in Tensorflow 1.3.0.
+In order to make models to work in Tensorflow 1.3.0, all the models has to be frozen in lower version of Tensorflow. Training can be done in higher version of Tensorflow, but graph freezing needs to be done in lower version, here, we will perform model freezing in Tensorflow 1.4.0:
 
+1. Create virtual environment using anaconda
+    ```
+    conda create -n tensorflow_1.4 python=3.6
+    conda activate tensorflow_1.4
+    ```
+
+2. Install Tensorflow 1.4.0:
+    ```
+    conda install tensorflow==1.4.0
+    ```
+
+3. Install dependencies:
+    ```
+    conda install pillow lxml matplotlib
+    ```
+
+4. Clone Tensorflow version of 1.4.0:
+    ```
+    git clone https://github.com/tensorflow/models.git
+    git checkout d135ed9c04bc9c60ea58f493559e60bc7673beb7
+    ```
+
+5. Setup the Tensorflow
+    ```
+    #From tensorflow/models/research
+    python setup.py built
+    python setup.py install
+    ```
+6. Compile proto buffers
+    ```
+    protoc.exe object_detection/protos/*.proto --python_out=.
+    ```
+7. Export python path:
+    ```
+    export PYTHONPATH=$PYTHONpATH:pwd:pwd/slim
+    ```
+8. Export frozen model:
+    ```
+    python object_detection/export_inference_graph.py \
+        --input_type=image_tensor \
+        --pipeline_config_path=config/faster_rcnn_inception_v2.config \
+        --trained_checkpoint_prefix=models/model.ckpt-150006 \
+        --output_directory=exported_graphs
+    ```
+
+## Optimizing
+After all the models are frozen, all the variables are turned into constants. We are able to perform optimizations to decrease the inference timing and size. Optimizing is performed by removing unused variables and folding operations. In following repository, python file is included to optimize frozen graphs. To perform optimization:
+```
+Python optimize_tf_graph.py\
+    --model_path=${PATH_TO_MODEL}/frozen_inference_graph.pb
+```
 ## Evaluation
 | Prediction      /     Ground Truth |
 | -----------------------------------|
