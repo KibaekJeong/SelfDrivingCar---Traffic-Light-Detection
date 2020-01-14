@@ -97,41 +97,34 @@ Following steps are for training the models using google cloud service:
            ```
       * Run setup.py file:
 
-
             #From tensorflow/models/research
             python setup.py built
             python setup.py install
-          
+
       * Add slim folder as python path:
 
-            ```
             export PYTHONPATH=$PYTHONpATH:pwd:pwd/slim
-            ```
+
 
 4. Upload all the files to Google Cloud Storage bucket
       * Upload tfrecord and pbtxt files
 
-            ```
             gsutil cp train.tfrecord gs://${YOUR_GCS_BUCKET}/data/
             gsutil cp valid.tfrecord gs://${YOUR_GCS_BUCKET}/data/
             gsutil cp label_map.pbtxt gs://${YOUR_GCS_BUCKET}/data/label_map.pbtxt
-            ```
+
 
       * Upload model files
 
-            ```
             gsutil cp faster_rcnn_inception_v2_coco_2018_01_28/model.ckpt.* gs://${YOUR_GCS_BUCKET}/data/
-            ```
+
 
       * Upload configuration file
 
-            ```
             gsutil cp faster_rcnn_inception_v2.config gs://${YOUR_GCS_BUCKET}/data/faster_rcnn_inception_v2.config
-            ```
 
 5. Run the training job
 
-            ```
             gcloud ai-platform jobs submit training `whoami`_object_detection_pets_`date +%m_%d_%Y_%H_%M_%S` \
                 --runtime-version 1.12 \
                 --job-dir=gs://${YOUR_GCS_BUCKET}/model_dir \
@@ -142,13 +135,10 @@ Following steps are for training the models using google cloud service:
                 -- \
                 --model_dir=gs://${YOUR_GCS_BUCKET}/model_dir \
                 --pipeline_config_path=gs://${YOUR_GCS_BUCKET}/data/faster_rcnn_inception_v2.config
-            ```
 
 6. Check out tensorboard to observe training process
 
-            ```
             tensorboard --logdir=${MODEL_DIR}
-            ```
 
         * Navigate to ```localhost:6006``` from your favorite web browser          
 
