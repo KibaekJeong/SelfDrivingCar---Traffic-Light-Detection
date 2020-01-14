@@ -61,7 +61,7 @@ Following steps are for training the models locally:
 5. Run the training job
       * Run the following command
           ```
-          # From the tensorflow/models/research/ directory
+          #From the tensorflow/models/research/ directory
           python object_detection/model_main.py \
           --pipeline_config_path=${PIPELINE_CONFIG_PATH} \
           --model_dir=${MODEL_DIR} \
@@ -95,15 +95,12 @@ Following steps are for training the models using google cloud service:
            ```
            git clone https://github.com/tensorflow/models.git
            ```
-
       * Run setup.py file
-
             ```
             #From tensorflow/models/research
             python setup.py built
             python setup.py install
             ```
-
       * Add slim folder as python path
 
             ```
@@ -116,7 +113,7 @@ Following steps are for training the models using google cloud service:
             ```
             gsutil cp train.tfrecord gs://${YOUR_GCS_BUCKET}/data/
             gsutil cp valid.tfrecord gs://${YOUR_GCS_BUCKET}/data/
-            gsutil cp label_map.pbtxt gs://${YOUR_GCS_BUCKET}/data/label_map.pbtxt
+            gsutil cp label_map.pbtxt gs://${YOUR_GCS_BUCKET}/data/label_map.pbtxt 
             ```
 
       * Upload model files
@@ -152,7 +149,7 @@ Following steps are for training the models using google cloud service:
             tensorboard --logdir=${MODEL_DIR}
             ```
 
-        * Navigate to `localhost:6006` from your favorite web browser          
+        * Navigate to ```localhost:6006``` from your favorite web browser          
 
 ## Exporting
 ### Tensorflow 1.14
@@ -164,7 +161,6 @@ python object_detection/export_inference_graph.py \
     --pipeline_config_path=config/faster_rcnn_inception_v2.config \
     --trained_checkpoint_prefix=models/model.ckpt-150006 \
     --output_directory=exported_graphs
-
 ```
 ### Tensorflow 1.3.0
 
