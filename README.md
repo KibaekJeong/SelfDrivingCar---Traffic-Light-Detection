@@ -69,6 +69,7 @@ Following steps are for training the models locally:
           ```
 
 6. Check out tensorboard to observe training process
+      * Run
           ```
           tensorboard --logdir=${MODEL_DIR}
           ```
