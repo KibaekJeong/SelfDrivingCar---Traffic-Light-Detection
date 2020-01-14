@@ -96,6 +96,7 @@ Following steps are for training the models using google cloud service:
            git clone https://github.com/tensorflow/models.git
            ```
       * Run setup.py file
+
             ```
             #From tensorflow/models/research
             python setup.py built
@@ -113,7 +114,7 @@ Following steps are for training the models using google cloud service:
             ```
             gsutil cp train.tfrecord gs://${YOUR_GCS_BUCKET}/data/
             gsutil cp valid.tfrecord gs://${YOUR_GCS_BUCKET}/data/
-            gsutil cp label_map.pbtxt gs://${YOUR_GCS_BUCKET}/data/label_map.pbtxt 
+            gsutil cp label_map.pbtxt gs://${YOUR_GCS_BUCKET}/data/label_map.pbtxt
             ```
 
       * Upload model files
