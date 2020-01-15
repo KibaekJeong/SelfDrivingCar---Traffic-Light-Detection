@@ -1,8 +1,9 @@
 # SelfDrivingCar---Traffic-Light-Detection
 
 ## Table of Contents
--[Overview](# Overview)
+-[Overview](## Overview)
 -[Models](# Models)
+
 ## Overview
 Following repository is dedicated for traffic light detection node used in the capston project of Udacity's Self Driving Car Nanodegree program.
 Traffic light detection node is required to detect traffic light and classify the state: Red, yellow, and green. This is required for vehicle to decide whether to stop or continue driving at the stop line.
