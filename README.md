@@ -1,7 +1,7 @@
 # SelfDrivingCar---Traffic-Light-Detection
 
 ## Table of Contents
--[Overview](## Overview)
+- [Overview](## Overview)
 -[Models](# Models)
 
 ## Overview
