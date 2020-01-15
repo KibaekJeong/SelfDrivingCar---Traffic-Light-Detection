@@ -1,8 +1,9 @@
 # SelfDrivingCar---Traffic-Light-Detection
 
 ## Table of Contents
-- [Overview](## Overview)
--[Models](# Models)
+
+- [Overview](##Overview)
+- [Models](#Models)
 
 ## Overview
 Following repository is dedicated for traffic light detection node used in the capston project of Udacity's Self Driving Car Nanodegree program.
