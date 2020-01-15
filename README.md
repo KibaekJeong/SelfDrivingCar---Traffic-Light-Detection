@@ -1,9 +1,16 @@
 # SelfDrivingCar---Traffic-Light-Detection
+
+## Table of Contents
+-[Overview](# Overview)
+-[Models](# Models)
+## Overview
 Following repository is dedicated for traffic light detection node used in the capston project of Udacity's Self Driving Car Nanodegree program.
 Traffic light detection node is required to detect traffic light and classify the state: Red, yellow, and green. This is required for vehicle to decide whether to stop or continue driving at the stop line.
 Key factors of traffic light detector are detection timing and accuracy of prediction. Detection time is one of the key factor as predicted state is needed for future action of vehicle and is directly connected to safety of passengers. Also accuracy is key factor as making false decision by inaccurate prediction of traffic light could lead to car accident.
 All prediction models are trained through use of [TensorFlow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection). Also, all the models used in following project were downloaded from [TensorFlow Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md).
-## models
+
+
+## Models
 Four different models were chosen as candidates and downloaded from [TensorFlow Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md). All four models were pre-trained with [COCO Dataset](http://cocodataset.org/), which already contains traffic lights category. Below are the model's reported speed, accuracy, configuration template, and training configuration used.
 
 | Model name  | Reported Speed (ms) | Reported COCO mAP[^1] | Template Config | Used Config |
@@ -219,7 +226,11 @@ Python optimize_tf_graph.py\
 ![img6](./imgs/6.png)
 ![img7](./imgs/7.png)
 
-| Model                              |                Acc (Udacity)               |               Acc (BSTLD)               |             GPU Time (ms)             |               Optimized               |             CPU Time (ms)             |               Optimized               |
+In evaluation of the inference model, main focus was whether model can classify the traffic light rather than Intersection of Union(IOU) of prediction box. Therefore, evaluation is done whether prediction of inference graph matches with ground truth state of traffic light. Evaluation is done with a jupyter notebook, included in repository.
+
+As final result, all models were able to perform high accuracy, while ssd mobilenet v1 and v2 performed with much faster detection timing. Among all the models, ssd mobilenet v2 was chosen for final model as it was able to perform with lowest detection time. Accuracy has been measured for two separate set of data, data from Udacity and data from Bosch traffic light dataset. Data from Udacity includes both simulation and on-site images.
+
+| Model                              |                Acc (Udacity)               |               Acc (BSTLD)               |             GPU Time (ms)             |               Optimized (ms)              |             CPU Time (ms)             |               Optimized (ms)              |
 |------------------------------------|:--------------------------------------:|:--------------------------------------:|:-------------------------------------:|:-------------------------------------:|:-------------------------------------:|:-------------------------------------:|
 | ssd_mobilenet_v1                   |                  1.0                 |                  0.992                 |                    22.49                   |                    21.03                   |                     25.35                    |                   24.41                 |
 | **ssd_mobilenet_v2**                   |                  1.0                 |                  0.992                 |                    22.01                   |                    20.86                   |                     22.35                    |                   20.90                   |
