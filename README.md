@@ -2,8 +2,18 @@
 
 ## Table of Contents
 
-- [Overview](##Overview)
+- [Overview](#Overview)
 - [Models](#Models)
+- [Training](#Training)
+    - [Training Locally](#Training Locally)
+    - [Training with google cloud service](#Training with google cloud service)
+        - [Setting up Google cloud](#Setting up Google cloud)
+        - [Training using Google Cloud](#Training using Google Cloud)
+- [Exporting](#Exporting)
+    - [Tensorflow 1.14.0](#Tensorflow 1.14.0)
+    - [Tensorflow 1.3.0](#Tensorflow_1.3.0)
+- [Optimizing](#Optimizing)
+- [Evaluation](#Evaluation)
 
 ## Overview
 Following repository is dedicated for traffic light detection node used in the capston project of Udacity's Self Driving Car Nanodegree program.
@@ -152,7 +162,7 @@ Following steps are for training the models using google cloud service:
 7. Navigate to ```localhost:6006``` from your favorite web browser          
 
 ## Exporting
-### Tensorflow 1.14
+### Tensorflow 1.14.0
 In order to use trained model for inference, models needs to be frozen. This can be done using utility included in tensorflow object API.
 
 ```
